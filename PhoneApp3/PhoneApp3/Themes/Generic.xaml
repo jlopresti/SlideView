@@ -1,0 +1,58 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:PhoneApp3">
+
+    <Style TargetType="controls:SlideView">
+        <Setter Property="Foreground"
+                Value="{StaticResource PhoneAccentBrush}" />
+        <Setter Property="IsHitTestVisible"
+                Value="False" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="MinHeight"
+                Value="20" />
+        <Setter Property="MinWidth"
+                Value="20" />
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:SlideView">
+                    <Grid x:Name="Scroller"
+                          Width="1300" Background="Transparent"
+                          VerticalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal"
+                                    Background="Transparent"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch">
+                            <StackPanel.RenderTransform>
+                                <TranslateTransform x:Name="Translate"  
+                                                    X="-410" />
+                            </StackPanel.RenderTransform>
+                            <ContentControl x:Name="LeftView"
+                                            Width="410"
+                                            Background="Transparent"
+                                            VerticalContentAlignment="Stretch"
+                                            HorizontalContentAlignment="Stretch"
+                                            Content="{TemplateBinding LeftContent}" />
+                            <ContentControl x:Name="MainView"
+                                            VerticalContentAlignment="Stretch"
+                                            HorizontalContentAlignment="Stretch"
+                                            Background="Transparent"
+                                            Width="480"
+                                            Content="{TemplateBinding MainContent}" />
+                            <ContentControl x:Name="RightView"
+                                            Background="Transparent"
+                                            VerticalContentAlignment="Stretch"
+                                            HorizontalContentAlignment="Stretch"
+                                            Width="410"
+                                            Content="{TemplateBinding RightContent}" />
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
